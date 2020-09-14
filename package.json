@@ -28,7 +28,7 @@
     "eslint": "^7.9.0"
   },
   "peerDependencies": {
-    "react": "16.9.0"
+    "react": "^16.9.0"
   },
   "bugs": {
     "url": "https://github.com/minhchienwikipedia/react-native-component-kits/issues"
