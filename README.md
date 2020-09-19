@@ -16,6 +16,42 @@
 
 This library will help you improve your code, faster and easier.
 
+#### Components
+
+**`ViewVisibleAnimated`**
+```javascript
+<ViewVisibleAnimated >
+    <Text>Hello</Text>
+</ViewVisibleAnimated> 
+```
+- `Props`
+
+```typescript
+type ViewVisibleAnimatedProps = {
+    scaleEnable?: Boolean,
+    autoHide?: Boolean,
+    onShowDone?: void,
+    onDone?: void,
+    onShowStart?: void,
+    style?: StyleProp<ViewStyle>,
+    delay?: Number,
+    duration?: Number,
+    timeout?: Number,
+    autoShow?: Boolean,
+    pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto',
+    scaleType?: 'in' | 'out',
+};
+```
+
+- `Method`
+```javascript
+show(callback, isDelay)
+
+hide(callback)
+```
+
+--------
+
 #### Functions
 
 | Functions | Description | Type |

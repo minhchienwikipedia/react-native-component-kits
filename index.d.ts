@@ -8,6 +8,7 @@ import {
     MemoExoticComponent,
     Dispatch,
 } from 'react';
+import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
 
 export function memoWithRef<T, P = {}>(
     component: ForwardRefRenderFunction<T, P>,
@@ -32,3 +33,6 @@ export const dectectEmail = (email: String) => Boolean;
 export const dectectUserName = (name: String) => Boolean;
 
 export const dectectPhoneNumber = (phoneNum: String) => Boolean;
+
+// Components
+export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
