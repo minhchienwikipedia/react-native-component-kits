@@ -102,7 +102,7 @@ export default memoWithRef(App)
 
 **`useStateCallback`**
 ```javascript
-const [state, setState] = useState(initialState)
+const [state, setState] = useStateCallback(initialState)
 
 setState('123',(nextState)=>{
     console.log(nextState)
