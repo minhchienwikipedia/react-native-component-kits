@@ -9,17 +9,17 @@ export const memoWithRef = (component) => {
     return memo(forwardRef(component), (prevProps, nextProps) => deepEqual(prevProps, nextProps));
 };
 
-export const dectectEmail = (email) => {
+export const detectEmail = (email) => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 };
 
-export const dectectUserName = (name) => {
+export const detectUserName = (name) => {
     var re = /^[a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/i;
     return re.test(name);
 };
 
-export const dectectPhoneNumber = (phoneNum) => {
+export const detectPhoneNumber = (phoneNum) => {
     var filter = /^[0-9]+$/;
     if (filter.test(phoneNum)) {
         return true;

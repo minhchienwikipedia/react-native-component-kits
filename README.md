@@ -59,9 +59,9 @@ hide(callback)
 |**`memoDeepEqual`**|Using `memo` of React but deep compare preProps with nextProps to check component should be return `true` or `false`.|`Higher Order Function`|
 |**`memoWithRef`**|It's like `memoDeepEqual` but using `forwardRef` to get `ref` of component.|`Higher Order Function`|
 |**`useStateCallback`**|Using `useState` of React and handle to get callback after setState|`Hook`|
-|**`dectectEmail`**|Check string is email|`Boolean`|
-|**`dectectUserName`**|Check string is user name|`Boolean`|
-|**`dectectPhoneNumber`**|Check string is user phone number|`Boolean`|
+|**`detectEmail`**|Check string is email|`Boolean`|
+|**`detectUserName`**|Check string is user name|`Boolean`|
+|**`detectPhoneNumber`**|Check string is user phone number|`Boolean`|
 
 ### How to use
 
