@@ -63,6 +63,12 @@ hide(callback)
 |**`detectUserName`**|Check string is user name|`Boolean`|
 |**`detectPhoneNumber`**|Check string is user phone number|`Boolean`|
 
+#### Hooks
+
+| Functions | Description | Type |
+|---|---|---|
+|**`useCountdown`**|Countdown value. Params: `startDate, endDate, autoStart,intervalTime`|`Hooks`|
+
 ### How to use
 
 **`memoDeepEqual`**

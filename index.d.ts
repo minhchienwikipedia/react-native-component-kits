@@ -36,3 +36,13 @@ export const dectectPhoneNumber = (phoneNum: String) => Boolean;
 
 // Components
 export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
+
+// Hooks
+
+type IuseCountDown = {
+    startDate: Date,
+    endDate: Date,
+    autoStart?: Boolean,
+    intervalTime?: Number,
+}
+export const useCountdown = (params: IuseCountDown) => Array;
