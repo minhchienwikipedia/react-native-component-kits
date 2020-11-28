@@ -43,6 +43,18 @@ type ViewVisibleAnimatedProps = {
 };
 ```
 
+**`ScaleButton`**
+```javascript
+<ScaleButton onPress={()=>{}}>
+    <Text>Hello</Text>
+</ScaleButton> 
+```
+- `Props`
+
+```typescript
+type TouchableWithoutFeedbackProps
+```
+
 - `Method`
 ```javascript
 show(callback, isDelay)

@@ -7,7 +7,9 @@ import {
     ComponentProps,
     MemoExoticComponent,
     Dispatch,
+    
 } from 'react';
+import { TouchableWithoutFeedbackProps } from 'react-native';
 import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
 
 export function memoWithRef<T, P = {}>(
@@ -36,6 +38,7 @@ export const dectectPhoneNumber = (phoneNum: String) => Boolean;
 
 // Components
 export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
+export const ScaleButton = (props: TouchableWithoutFeedbackProps) => Boolean;
 
 // Hooks
 
