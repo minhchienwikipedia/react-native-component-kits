@@ -1,6 +1,6 @@
 {
   "name": "react-native-component-kits",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "React Native Components",
   "main": "index.js",
   "scripts": {
@@ -21,14 +21,14 @@
   "license": "MIT",
   "dependencies": {
     "deep-equal": "^2.0.3",
-    "react": "16.11.0"
+    "react": "^16.9.0"
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "^2.0.0",
     "eslint": "^7.9.0"
   },
   "peerDependencies": {
-    "react": "16.11.0"
+    "react": "^16.9.0"
   },
   "bugs": {
     "url": "https://github.com/minhchienwikipedia/react-native-component-kits/issues"
