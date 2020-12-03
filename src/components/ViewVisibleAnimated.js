@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useImperativeHandle } from 'react';
+import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Animated, ViewStyle, StyleProp } from 'react-native';
 import { memoWithRef } from '../utils/FunctionUtils';
 
@@ -42,6 +42,7 @@ const ViewVisibleAnimated = memoWithRef(
         }));
         const visibleAnimation = useRef(new Animated.Value(0)).current;
         const scaleAnimation = useRef(new Animated.Value(scaleType === 'in' ? 0 : 3)).current;
+        const [visible, setVisible] = useState(false);
         let TIME_OUT;
 
         useEffect(() => {
@@ -78,6 +79,7 @@ const ViewVisibleAnimated = memoWithRef(
             }).start(() => {
                 callback?.();
                 onShowDone?.();
+                setVisible(true);
                 if (autoHide) {
                     TIME_OUT = setTimeout(() => {
                         hide(onDone);
@@ -96,7 +98,10 @@ const ViewVisibleAnimated = memoWithRef(
                 toValue: 0,
                 duration,
                 useNativeDriver: true,
-            }).start(callback);
+            }).start(() => {
+                setVisible(false);
+                callback?.();
+            });
         };
 
         return (
@@ -109,7 +114,7 @@ const ViewVisibleAnimated = memoWithRef(
                     },
                 ]}
                 pointerEvents={pointerEvents}>
-                {children}
+                {visible ? children : null}
             </Animated.View>
         );
     },
