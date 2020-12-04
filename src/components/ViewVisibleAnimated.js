@@ -67,6 +67,7 @@ const ViewVisibleAnimated = memoWithRef(
         };
 
         const showAnimation = (callback) => {
+            setVisible(true);
             Animated.timing(scaleAnimation, {
                 toValue: 1,
                 duration,
@@ -79,7 +80,6 @@ const ViewVisibleAnimated = memoWithRef(
             }).start(() => {
                 callback?.();
                 onShowDone?.();
-                setVisible(true);
                 if (autoHide) {
                     TIME_OUT = setTimeout(() => {
                         hide(onDone);
