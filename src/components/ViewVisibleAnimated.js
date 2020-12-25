@@ -113,7 +113,7 @@ const ViewVisibleAnimated = memoWithRef(
                         transform: [{ scale: scaleEnable ? scaleAnimation : 1 }],
                     },
                 ]}
-                pointerEvents={pointerEvents}>
+                pointerEvents={visible ? pointerEvents : 'none'}>
                 {visible ? children : null}
             </Animated.View>
         );

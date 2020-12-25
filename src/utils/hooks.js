@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useCountdown = ({
     startDate = new Date(),
@@ -24,28 +24,30 @@ export const useCountdown = ({
     return [timeLeft, startInterval, stopInterval];
 };
 
-export const useInterval = (handler, interval, autoStart) => {
-    const [intervalId, setIntervalId] = useState();
-    let id;
-    const startInterval = () => {
-        id = setInterval(handler, interval);
-        setIntervalId(id);
-    };
+type Delay = number | null;
+type TimerHandler = (...args: any[]) => void;
 
-    const stopInterval = () => {
-        clearInterval(intervalId);
+export const useInterval = (callback: TimerHandler, delay: Delay, autoStart) => {
+    const savedCallbackRef = useRef();
+    const intervalId = useRef();
+
+    const startInterval = () => {
+        const handler = (...args: any[]) => savedCallbackRef.current(...args);
+        intervalId.current = setInterval(handler, delay);
     };
 
     useEffect(() => {
-        if (autoStart) {
+        savedCallbackRef.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+        if (delay !== null) {
             startInterval();
+            return () => clearInterval(intervalId.current);
         }
-        return () => {
-            stopInterval();
-        };
-    }, []);
+    }, [delay]);
     return {
         startInterval,
-        stopInterval,
+        stopInterval: () => clearInterval(intervalId.current),
     };
 };
