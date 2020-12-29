@@ -51,3 +51,42 @@ export const useInterval = (callback: TimerHandler, delay: Delay, autoStart) => 
         stopInterval: () => clearInterval(intervalId.current),
     };
 };
+
+const getDataByArrKey = (data, path = '') => {
+    const arrKey = path.split('.');
+    if (!arrKey.length) {
+        return data;
+    }
+    let value = data;
+    for (let i = 0; i < arrKey.length; i++) {
+        const element = arrKey[i];
+        if (value[element]) {
+            value = value[element];
+        }
+    }
+    return value;
+};
+
+export const useFetchData = ({ api, loadingDefault = true, pathData }) => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(loadingDefault);
+    const [error, setError] = useState(false);
+
+    async function load() {
+        try {
+            const result = await api();
+            setData(getDataByArrKey(result, pathData));
+        } catch (e) {
+            setError(true);
+        }
+        setLoading(false);
+    }
+
+    const refresh = () => {
+        setData([]);
+        setLoading(true);
+        load();
+    };
+
+    return { data, loading, error, load, refresh };
+};

@@ -1,4 +1,4 @@
-import {
+import React, {
     ForwardRefRenderFunction,
     ForwardRefExoticComponent,
     PropsWithoutRef,
@@ -6,8 +6,7 @@ import {
     ComponentType,
     ComponentProps,
     MemoExoticComponent,
-    Dispatch,
-    
+    Dispatch,  
 } from 'react';
 import { TouchableWithoutFeedbackProps } from 'react-native';
 import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
@@ -36,6 +35,8 @@ export const dectectUserName = (name: String) => Boolean;
 
 export const dectectPhoneNumber = (phoneNum: String) => Boolean;
 
+export function withAnimated(WrappedComponent: React.ComponentType<any>): ComponentType
+
 // Components
 export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
 export const ScaleButton = (props: TouchableWithoutFeedbackProps) => Boolean;
@@ -49,3 +50,9 @@ type IuseCountDown = {
     intervalTime?: Number,
 }
 export const useCountdown = (params: IuseCountDown) => Array;
+
+export const useInterval = (callback: TimerHandler, delay?: Delay, autoStart?: Boolean) => Array;
+
+type IFetchData = { api: Promise, loadingDefault?: Boolean, pathData?: String }
+
+export const useFetchData = (params: IFetchData) => Array;

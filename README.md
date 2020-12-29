@@ -76,12 +76,15 @@ type TouchableWithoutFeedbackProps
 |**`detectEmail`**|Check string is email|`Boolean`|
 |**`detectUserName`**|Check string is user name|`Boolean`|
 |**`detectPhoneNumber`**|Check string is user phone number|`Boolean`|
+|**`withAnimated`**|Convert class component to use Animated|`Function`|
 
 #### Hooks
 
 | Functions | Description | Type |
 |---|---|---|
 |**`useCountdown`**|Countdown value. Params: `startDate, endDate, autoStart,intervalTime`|`Hooks`|
+|**`useInterval`**|Countdown value. Params: `callback, delay, autoStart`|`Hooks`|
+|**`useFetchData`**|Countdown value. Params: `api,loadingDefault, pathData`|`Hooks`|
 
 ### How to use
 

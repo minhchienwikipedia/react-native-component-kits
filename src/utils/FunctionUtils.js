@@ -1,5 +1,6 @@
 import deepEqual from 'deep-equal';
-import { forwardRef, memo, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, memo, useEffect, useRef, useState } from 'react';
+import { Animated } from 'react-native';
 
 export const memoDeepEqual = (component) => {
     return memo(component, (prevProps, nextProps) => deepEqual(prevProps, nextProps));
@@ -47,3 +48,16 @@ export const useStateCallback = (initialState) => {
 
     return [state, setStateCallback];
 };
+
+export function withAnimated(WrappedComponent: React.ComponentType<any>): ComponentType {
+    const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+    class WithAnimated extends React.Component {
+        static displayName = `WithAnimated(${displayName})`;
+
+        render(): React.ReactNode {
+            return <WrappedComponent {...this.props} />;
+        }
+    }
+
+    return Animated.createAnimatedComponent(WithAnimated);
+}
