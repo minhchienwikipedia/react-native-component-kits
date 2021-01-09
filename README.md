@@ -40,6 +40,7 @@ type ViewVisibleAnimatedProps = {
     autoShow?: Boolean,
     pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto',
     scaleType?: 'in' | 'out',
+    renderHiddenContent?: any // Content show when component hide, default null
 };
 ```
 
