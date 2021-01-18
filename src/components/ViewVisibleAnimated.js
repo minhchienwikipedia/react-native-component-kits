@@ -58,14 +58,12 @@ const ViewVisibleAnimated = memoWithRef(
             };
         }, []);
 
-        const show = (callback, isDelay) => {
-            TIME_OUT = setTimeout(
-                () => {
-                    onShowStart?.();
-                    showAnimation(callback);
-                },
-                isDelay ? delay : 0,
-            );
+        const show = (callback, durationShow = delay) => {
+            TIME_OUT && clearTimeout(TIME_OUT);
+            TIME_OUT = setTimeout(() => {
+                onShowStart?.();
+                showAnimation(callback);
+            }, durationShow);
         };
 
         const showAnimation = (callback) => {
@@ -83,6 +81,7 @@ const ViewVisibleAnimated = memoWithRef(
                 callback?.();
                 onShowDone?.();
                 if (autoHide) {
+                    TIME_OUT && clearTimeout(TIME_OUT);
                     TIME_OUT = setTimeout(() => {
                         hide(onDone);
                     }, timeout);
@@ -90,15 +89,15 @@ const ViewVisibleAnimated = memoWithRef(
             });
         };
 
-        const hide = (callback, hideDuration) => {
+        const hide = (callback, durationHide = duration) => {
             Animated.timing(scaleAnimation, {
                 toValue: scaleType === 'in' ? 0 : 3,
-                duration: hideDuration || duration,
+                duration: durationHide,
                 useNativeDriver: true,
             }).start();
             Animated.timing(visibleAnimation, {
                 toValue: 0,
-                duration: hideDuration || duration,
+                duration: durationHide,
                 useNativeDriver: true,
             }).start(() => {
                 setVisible(false);
