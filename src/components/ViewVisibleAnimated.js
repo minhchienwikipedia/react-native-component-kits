@@ -35,6 +35,7 @@ const ViewVisibleAnimated = memoWithRef(
             pointerEvents = 'auto',
             scaleType = 'in',
             renderHiddenContent = null,
+            disableHiddenContent = false,
         }: ViewVisibleAnimatedProps,
         ref,
     ) => {
@@ -115,7 +116,7 @@ const ViewVisibleAnimated = memoWithRef(
                     },
                 ]}
                 pointerEvents={visible ? pointerEvents : 'none'}>
-                {visible ? children : renderHiddenContent}
+                {disableHiddenContent ? children : visible ? children : renderHiddenContent}
             </Animated.View>
         );
     },

@@ -39,7 +39,13 @@ export function withAnimated(WrappedComponent: React.ComponentType<any>): Compon
 
 // Components
 export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
-export const ScaleButton = (props: TouchableWithoutFeedbackProps) => Boolean;
+
+interface ScaleButtonProps extends TouchableWithoutFeedbackProps {
+    scaleSize?: Number,
+    disableHiddenContent?: Boolean
+}
+
+export const ScaleButton = (props: ScaleButtonProps) => Boolean;
 
 // Hooks
 
