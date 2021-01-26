@@ -9,6 +9,7 @@ const ScaleButton = ({
     children,
     style,
     scaleSize = 0.8,
+    onPress = () => {},
     ...rest
 }: TouchableWithoutFeedbackProps) => {
     const scale = useRef(new Animated.Value(1)).current;
@@ -31,12 +32,18 @@ const ScaleButton = ({
             }).start();
         });
     };
+
+    const onPressButton = () => {
+        requestAnimationFrame(onPress);
+    };
+
     return (
         <TouchableWithoutFeedbackAnimation
             style={{ transform: [{ scale }] }}
             onPressIn={onPressIn}
             onPressOut={onPressOut}
-            {...rest}>
+            {...rest}
+            onPress={onPressButton}>
             {children}
         </TouchableWithoutFeedbackAnimation>
     );
