@@ -1,6 +1,6 @@
 {
   "name": "react-native-component-kits",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "React Native Components",
   "main": "index.js",
   "scripts": {
@@ -20,15 +20,15 @@
   "author": "Duong Minh Chien <minhchienwikipedia@gmail.com> (https://github.com/minhchienwikipedia)",
   "license": "MIT",
   "dependencies": {
-    "deep-equal": "^2.0.3",
-    "react": "^16.9.0"
+    "deep-equal": "^2.0.3"
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "^2.0.0",
-    "eslint": "^7.9.0"
+    "eslint": "^7.9.0",
+    "react": "^16.9.0"
   },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "*"
   },
   "bugs": {
     "url": "https://github.com/minhchienwikipedia/react-native-component-kits/issues"
