@@ -74,6 +74,7 @@ type TouchableWithoutFeedbackProps
 |**`memoDeepEqual`**|Using `memo` of React but deep compare preProps with nextProps to check component should be return `true` or `false`.|`Higher Order Function`|
 |**`memoWithRef`**|It's like `memoDeepEqual` but using `forwardRef` to get `ref` of component.|`Higher Order Function`|
 |**`useStateCallback`**|Using `useState` of React and handle to get callback after setState|`Hook`|
+|**`useStateSafe`**|Using `useState` of React and handle don't update state when component unmounted|`Hook`|
 |**`detectEmail`**|Check string is email|`Boolean`|
 |**`detectUserName`**|Check string is user name|`Boolean`|
 |**`detectPhoneNumber`**|Check string is user phone number|`Boolean`|

@@ -6,9 +6,9 @@ import React, {
     ComponentType,
     ComponentProps,
     MemoExoticComponent,
-    Dispatch,  
+    Dispatch,
 } from 'react';
-import { TouchableWithoutFeedbackProps } from 'react-native';
+import { TouchableWithoutFeedbackProps, } from 'react-native';
 import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
 
 export function memoWithRef<T, P = {}>(
@@ -29,11 +29,11 @@ type SetStateAction<S, A> = (prevState: S, callback: A) => S;
 
 export function useStateCallback<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
 
-export const dectectEmail = (email: String) => Boolean;
+export const detectEmail = (email: String) => Boolean;
 
-export const dectectUserName = (name: String) => Boolean;
+export const detectUserName = (name: String) => Boolean;
 
-export const dectectPhoneNumber = (phoneNum: String) => Boolean;
+export const detectPhoneNumber = (phoneNum: String) => Boolean;
 
 export function withAnimated(WrappedComponent: React.ComponentType<any>): ComponentType
 
@@ -62,3 +62,5 @@ export const useInterval = (callback: TimerHandler, delay?: Delay, autoStart?: B
 type IFetchData = { api: Promise, loadingDefault?: Boolean, pathData?: String }
 
 export const useFetchData = (params: IFetchData) => Array;
+
+export function useStateSafe<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];

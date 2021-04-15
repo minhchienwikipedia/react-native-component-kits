@@ -90,3 +90,22 @@ export const useFetchData = ({ api, loadingDefault = true, pathData }) => {
 
     return { data, loading, error, load, refresh };
 };
+
+export const useStateSafe = (initialState) => {
+    const [state, setState] = useState(initialState);
+    const unmount = useRef(false);
+
+    useEffect(() => {
+        return () => {
+            unmount.current = true;
+        };
+    }, []);
+
+    const setStateSafe = (value) => {
+        if (!unmount.current) {
+            setState(value);
+        }
+    };
+
+    return [state, setStateSafe];
+};
