@@ -109,3 +109,23 @@ export const useStateSafe = (initialState) => {
 
     return [state, setStateSafe];
 };
+
+export const useStateCallback = (initialState) => {
+    const [state, setState] = useStateSafe(initialState);
+    const cbRef = useRef(null);
+
+    const setStateCallback = (val, cb) => {
+        cbRef.current = cb; // store passed callback to ref
+        setState(val);
+    };
+
+    useEffect(() => {
+        // cb.current is `null` on initial render, so we only execute cb on state *updates*
+        if (cbRef.current) {
+            cbRef.current(state);
+            cbRef.current = null; // reset callback after execution
+        }
+    }, [state]);
+
+    return [state, setStateCallback];
+};

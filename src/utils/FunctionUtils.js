@@ -1,5 +1,5 @@
 import deepEqual from 'deep-equal';
-import React, { forwardRef, memo, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { Animated } from 'react-native';
 
 export const memoDeepEqual = (component) => {
@@ -27,26 +27,6 @@ export const detectPhoneNumber = (phoneNum) => {
     } else {
         return false;
     }
-};
-
-export const useStateCallback = (initialState) => {
-    const [state, setState] = useState(initialState);
-    const cbRef = useRef(null);
-
-    const setStateCallback = (val, cb) => {
-        cbRef.current = cb; // store passed callback to ref
-        setState(val);
-    };
-
-    useEffect(() => {
-        // cb.current is `null` on initial render, so we only execute cb on state *updates*
-        if (cbRef.current) {
-            cbRef.current(state);
-            cbRef.current = null; // reset callback after execution
-        }
-    }, [state]);
-
-    return [state, setStateCallback];
 };
 
 export function withAnimated(WrappedComponent: React.ComponentType<any>): ComponentType {
