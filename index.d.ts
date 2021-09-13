@@ -9,6 +9,8 @@ import React, {
     Dispatch,
 } from 'react';
 import { TouchableWithoutFeedbackProps, } from 'react-native';
+import {  ToastProps } from './src/components/Toast';
+import { ShowToastProps } from './src/components/ToastManager';
 import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
 
 export function memoWithRef<T, P = {}>(
@@ -46,6 +48,13 @@ interface ScaleButtonProps extends TouchableWithoutFeedbackProps {
 }
 
 export const ScaleButton = (props: ScaleButtonProps) => Boolean;
+
+export const Toast = (props: ToastProps) => Boolean;
+
+export const showToast = (props: ShowToastProps) => Boolean;
+
+export const toastRef = (props) => Boolean;
+
 
 // Hooks
 

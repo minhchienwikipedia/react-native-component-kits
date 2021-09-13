@@ -64,6 +64,43 @@ hide(callback)
 type TouchableWithoutFeedbackProps
 ```
 
+**`Toast`**
+```javascript
+import { toastRef, Toast, showToast } from 'react-native-component-kits';
+
+// Used
+showToast({
+    message: 'Copy success!',
+    type: 'success',
+    position: 'top',
+});
+
+<Toast ref={toastRef} />
+// or custom children
+<Toast>
+{({ title, type, message }) => <Text>{message}</Text>}
+</Toast>
+```
+
+- `Props`
+
+```typescript
+export type ToastProps = {
+    translateEnable?: Boolean,
+    scaleEnable?: Boolean,
+    style?: StyleProp<ViewStyle>,
+};
+
+export type ShowToastProps = {
+    message: String,
+    duration?: Number,
+    position?: 'top' | 'bottom',
+    type?: 'success' | 'fail',
+    onPress?: void,
+    title?: String,
+};
+```
+
 
 --------
 
