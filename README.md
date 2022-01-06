@@ -98,6 +98,7 @@ export type ShowToastProps = {
     type?: 'success' | 'fail',
     onPress?: void,
     title?: String,
+    // rest | You can pass any props to your children params
 };
 ```
 

@@ -26,6 +26,7 @@ export const showToast = (props: ShowToastProps) => {
         type = 'success',
         onPress = () => {},
         title,
+        ...rest
     } = props;
     toastRef.current?.show?.({
         message,
@@ -34,5 +35,6 @@ export const showToast = (props: ShowToastProps) => {
         type,
         onPress,
         title,
+        ...rest,
     });
 };

@@ -42,9 +42,9 @@ const Toast = memoWithRef(
 
         const TIME_OUT = useRef();
 
-        const show = ({ message, duration = 3000, position, type, onPress, title }) => {
+        const show = ({ message, duration = 3000, position, type, onPress, title, ...rest }) => {
             if (!TIME_OUT.current) {
-                handleShow({ message, position, type, onPress, title, duration });
+                handleShow({ message, position, type, onPress, title, duration, ...rest });
                 return;
             }
 
@@ -58,6 +58,7 @@ const Toast = memoWithRef(
                         onPress,
                         title,
                         duration,
+                        ...rest,
                     });
                 },
                 skipSetMessage: true,
@@ -73,9 +74,9 @@ const Toast = memoWithRef(
             [],
         );
 
-        const handleShow = ({ message, position, type, onPress, title, duration }) => {
+        const handleShow = ({ message, position, type, onPress, title, duration, ...rest }) => {
             setMessage(message);
-            setOptions({ position, type, onPress, title });
+            setOptions({ position, type, onPress, title, ...rest });
             viewVisibleAnimatedRef.current?.show?.({
                 callback: () => {
                     TIME_OUT.current = setTimeout(() => {
