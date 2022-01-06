@@ -151,7 +151,7 @@ const ViewVisibleAnimated = memoWithRef(
                     useNativeDriver: true,
                 }),
                 Animated.timing(translateAnimation, {
-                    toValue: position === 'bottom' ? 100 : -100,
+                    toValue: position === 'bottom' ? 300 : -300,
                     duration,
                     useNativeDriver: true,
                 }),
