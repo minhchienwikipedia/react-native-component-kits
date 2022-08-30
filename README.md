@@ -2,7 +2,7 @@
 # react-native-component-kits
 [![npm version](https://badge.fury.io/js/react-native-component-kits.svg)](https://badge.fury.io/js/react-native-component-kits) ![](https://img.shields.io/github/issues/minhchienwikipedia/react-native-component-kits.svg) ![](https://img.shields.io/github/stars/minhchienwikipedia/react-native-component-kits.svg) ![](https://img.shields.io/github/license/minhchienwikipedia/react-native-component-kits.svg) [![npm](https://img.shields.io/npm/dm/react-native-component-kits.svg)](https://npmjs.com/package/react-native-component-kits)
 
-[![NPM](https://nodei.co/npm/react-native-component-kits.png?downloads=true&stars=true)](https://nodei.co/npm/react-native-component-kits/)
+<br><p><a href="https://www.buymeacoffee.com/minhchien"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="fateh999" /></a></p><br><br><br>
 
 ## Getting started
 
