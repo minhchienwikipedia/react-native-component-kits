@@ -8,10 +8,42 @@ import React, {
     MemoExoticComponent,
     Dispatch,
 } from 'react';
-import { TouchableWithoutFeedbackProps, } from 'react-native';
-import {  ToastProps } from './src/components/Toast';
-import { ShowToastProps } from './src/components/ToastManager';
-import { ViewVisibleAnimatedProps } from './src/components/ViewVisibleAnimated';
+import { TouchableWithoutFeedbackProps, StyleProp, ViewStyle } from 'react-native';
+
+type ToastProps = {
+    translateEnable?: Boolean,
+    scaleEnable?: Boolean,
+    style?: StyleProp<ViewStyle>,
+    extraBottom?: Number,
+    extraTop?: Number,
+}
+
+type ShowToastProps = {
+    message: String,
+    duration?: Number,
+    position?: 'top' | 'bottom',
+    type?: 'success' | 'fail',
+    onPress?: void,
+    title?: String,
+};
+
+type ViewVisibleAnimatedProps = {
+    scaleEnable?: Boolean,
+    translateEnable?: Boolean,
+    autoHide?: Boolean,
+    onShowDone?: void,
+    onDone?: void,
+    onShowStart?: ()=>void,
+    style?: StyleProp<ViewStyle>,
+    delay?: Number,
+    duration?: Number,
+    timeout?: Number,
+    autoShow?: Boolean,
+    pointerEvents?: 'box-none' | 'none' | 'box-only' | 'auto',
+    scaleType?: 'in' | 'out',
+    renderHiddenContent?: any,
+    disableHiddenContent?: boolean
+};
 
 export function memoWithRef<T, P = {}>(
     component: ForwardRefRenderFunction<T, P>,
@@ -31,29 +63,29 @@ type SetStateAction<S, A> = (prevState: S, callback: A) => S;
 
 export function useStateCallback<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
 
-export const detectEmail = (email: String) => Boolean;
+export function detectEmail(email: String): Boolean;
 
-export const detectUserName = (name: String) => Boolean;
+export function detectUserName(name: String): Boolean;
 
-export const detectPhoneNumber = (phoneNum: String) => Boolean;
+export function detectPhoneNumber(phoneNum: String): Boolean;
 
 export function withAnimated(WrappedComponent: React.ComponentType<any>): ComponentType
 
 // Components
-export const ViewVisibleAnimated = (props: ViewVisibleAnimatedProps) => Boolean;
+export class ViewVisibleAnimated extends React.Component<ViewVisibleAnimatedProps> {};
 
 interface ScaleButtonProps extends TouchableWithoutFeedbackProps {
     scaleSize?: Number,
     disableHiddenContent?: Boolean
 }
 
-export const ScaleButton = (props: ScaleButtonProps) => Boolean;
+export class ScaleButton extends React.Component<ScaleButtonProps> {};
 
-export const Toast = (props: ToastProps) => Boolean;
+export class Toast extends React.Component<ToastProps> {};
 
-export const showToast = (props: ShowToastProps) => Boolean;
+export function showToast(props: ShowToastProps): void;
 
-export const toastRef = (props) => Boolean;
+export function toastRef(props): any;
 
 
 // Hooks
@@ -64,12 +96,12 @@ type IuseCountDown = {
     autoStart?: Boolean,
     intervalTime?: Number,
 }
-export const useCountdown = (params: IuseCountDown) => Array;
+export function useCountdown(params: IuseCountDown): any;
 
-export const useInterval = (callback: TimerHandler, delay?: Delay, autoStart?: Boolean) => Array;
+export function useInterval(callback: void, delay?: number, autoStart?: Boolean): any;
 
-type IFetchData = { api: Promise, loadingDefault?: Boolean, pathData?: String }
+type IFetchData = { api: Promise<any>, loadingDefault?: Boolean, pathData?: String }
 
-export const useFetchData = (params: IFetchData) => Array;
+export function useFetchData(params: IFetchData): any;
 
 export function useStateSafe<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
